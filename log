@@ -13,3 +13,9 @@ treemap.c:51:20: error: variable ‘parent’ set but not used [-Werror=unused-b
 cc1: all warnings being treated as errors
 Compilation failed
 f650be4
+Thu 09 May 2024 09:18:05 PM UTC: 
+ treemap.c | 15 ---------------
+ 1 file changed, 15 deletions(-)
+ tests:  4|7
+total_score: 5/70
+39c0fc9
