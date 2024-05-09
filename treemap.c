@@ -66,6 +66,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
             aux = aux->left;
 
         }
+        // profe nose por que a la derecha no me funciona
         // if (tree->lower_than(key, aux->pair->key) == 0){
         //     if (aux->right == NULL){
         //         aux->right = createTreeNode(key, value);
@@ -85,10 +86,34 @@ TreeNode * minimum(TreeNode * x){
         x = x->left;
     }
     return x;
+
+    
 }
 
 
 void removeNode(TreeMap * tree, TreeNode* node) {
+    if (node->left == NULL && node->right == NULL){
+        if (node->parent == NULL){
+            tree->root = NULL;
+        }
+        else{
+            if (node->parent->left == node){
+                node->parent->left = NULL;
+            }
+            else{
+                node->parent->right = NULL;
+            }
+        }
+        
+    }
+    else{
+        if (node->left != NULL && node->right != NULL){
+            TreeNode * min = minimum(node->right);
+            node->pair = min->pair;
+            removeNode(tree, min);
+            
+        }
+    }
     
 
 }
