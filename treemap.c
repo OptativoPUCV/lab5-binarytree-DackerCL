@@ -122,8 +122,5 @@ Pair * nextTreeMap(TreeMap * tree) {
     }
     tree->current = parent;
     return parent == NULL ? NULL : parent->pair;    
-    }
-    
-    
     return NULL;
 }
