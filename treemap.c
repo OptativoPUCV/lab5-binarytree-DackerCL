@@ -121,13 +121,13 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     TreeNode *successor = minimum(node->right);
     node->pair->key = successor->pair->key;
     node->pair->value = successor->pair->value;
-    if (sucessor->parent->left == successor){
-        sucessor->parent->left = successor->right;
+    if (successor->parent->left == successor){
+        successor->parent->left = successor->right;
     }else {
-        successor->parent->rigth = successor->right;
+        successor->parent->right = successor->right;
     }
-    if(successor->rigth != NULL){
-        successor->rigth->parent = successor->parent;
+    if(successor->right != NULL){
+        successor->right->parent = successor->parent;
     }
     free(successor->pair);
     free(successor);
