@@ -86,42 +86,47 @@ TreeNode * minimum(TreeNode * x){
 
 
 void removeNode(TreeMap * tree, TreeNode* node) {
-    if (tree == NULL || node == NULL){
-        return;
+    if (tree == NULL || node == NULL) {
+        return; // Handle NULL pointers
     }
-    if (node->left == NULL && node->right == NULL){
-        if (node->parent == NULL){
+
+    if (node->left == NULL && node->right == NULL) {
+        if (node->parent == NULL) {
             tree->root = NULL;
-        }else if (node->parent->left == node){
+        } else if (node->parent->left == node) {
             node->parent->left = NULL;
-        }else{
+        } else {
             node->parent->right = NULL;
         }
         tree->current = node->parent;
-        free(node);
+        free(node); // Deallocate memory
         return;
     }
 
-    if (node->left == NULL || node->right == NULL){
+    if (node->left == NULL || node->right == NULL) {
         TreeNode *child = (node->left != NULL) ? node->left : node->right;
-        if (node->parent == NULL){
+        if (node->parent == NULL) {
             tree->root = child;
-        }else if (node->parent->left == node){
+        } else if (node->parent->left == node) {
             node->parent->left = child;
-        }else{
+        } else {
             node->parent->right = child;
         }
         child->parent = node->parent;
         tree->current = child;
-        free(node);
+        free(node); // Deallocate memory
         return;
     }
-    TreeNode *nuevo = minimum(node->right);
-    node->pair->key = nuevo->pair->key;
-    node->pair->value = nuevo->pair->value;
-    removeNode(tree, nuevo);
-}
 
+    TreeNode *aux = minimum(node->right);
+    node->pair->key = aux->pair->key;
+    node->pair->value = aux->pair->value;
+    removeNode(tree, aux);
+
+    }
+
+    
+    
 void eraseTreeMap(TreeMap * tree, void* key){
     
 }
