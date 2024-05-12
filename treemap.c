@@ -160,11 +160,11 @@ Pair * upperBound(TreeMap * tree, void* key) {
             ub = aux;
             aux = aux->left;
         } else {
-            aux = aux->right
+            aux = aux->right;
         }
     }
-    if(ib != NULL){
-        return ub->pair:
+    if(ub != NULL){
+        return ub->pair;
     }
     return NULL;
 }
