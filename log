@@ -231,3 +231,37 @@ Sun 12 May 2024 08:00:36 PM UTC:
  tests:  13|4
 total_score: 30/70
 7da0c6b
+Sun 12 May 2024 08:08:17 PM UTC: 
+ treemap.c | 30 ++++++++++++++++++++++++++++--
+ 1 file changed, 28 insertions(+), 2 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘searchTreeMap’:
+treemap.c:137:21: error: expected ‘)’ before ‘{’ token
+  137 |     while(aux !=NULL{
+      |          ~          ^
+treemap.c:148:1: error: expected expression before ‘}’ token
+  148 | }
+      | ^
+treemap.c: In function ‘upperBound’:
+treemap.c:163:29: error: expected ‘;’ before ‘}’ token
+  163 |             aux = aux->right
+      |                             ^
+      |                             ;
+  164 |         }
+      |         ~                    
+treemap.c:166:8: error: ‘ib’ undeclared (first use in this function); did you mean ‘ub’?
+  166 |     if(ib != NULL){
+      |        ^~
+      |        ub
+treemap.c:166:8: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c:167:24: error: expected ‘;’ before ‘:’ token
+  167 |         return ub->pair:
+      |                        ^
+      |                        ;
+treemap.c: In function ‘searchTreeMap’:
+treemap.c:148:1: error: control reaches end of non-void function [-Werror=return-type]
+  148 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+83c4290
